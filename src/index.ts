@@ -6,11 +6,15 @@ import {
     getClanByTag,
     getClanCurrentWar,
     getClanMembers,
+    getClanRankingsForLocation,
     getClans,
     getClanWarlog,
     getGlobalTournaments,
+    getLocationById,
+    getLocations,
     getPlayerBattleLog,
     getPlayerByTag,
+    getPlayerRankingsForLocation,
     getPlayerUpcomingChests,
     getTournamentByTag,
     getTournaments,
@@ -25,6 +29,9 @@ import {
     IClanRequestParams,
     ICurrentWar,
     IGlobalTournaments,
+    ILocation,
+    ILocationFullRequestParams,
+    ILocationRequestParams,
     IPlayer,
     ITournament,
     ITournamentDetails,
@@ -32,6 +39,11 @@ import {
     IWarlog,
 } from './interfaces'
 
+/**
+ * @namespace ClashRoyaleAPI
+ *
+ * @class ClashRoyaleAPI
+ */
 export class ClashRoyaleAPI {
     private readonly apiClient: AxiosInstance
 
@@ -153,5 +165,54 @@ export class ClashRoyaleAPI {
      */
     public async getCards(): Promise<ICard[]> {
         return await getCards(this.apiClient)
+    }
+
+    /**
+     * List all available locations
+     *
+     * @param {ILocationRequestParams} params
+     */
+    public async getLocations(params: ILocationRequestParams): Promise<ILocation[]> {
+        return await getLocations(params, this.apiClient)
+    }
+
+    /**
+     * Get information about specific location
+     *
+     * @param {string} id
+     * @param {ILocationFullRequestParams} params
+     */
+    public async getLocationById(id: string, params: ILocationFullRequestParams): Promise<ILocation> {
+        return await getLocationById(id, this.apiClient)
+    }
+
+    /**
+     * Get clan rankings for a specific location.
+     *
+     * @param {string} id
+     * @param {ILocationFullRequestParams} params
+     */
+    public async getClanRankinsForLocation(id: string, params: ILocationFullRequestParams): Promise<IClan[]> {
+        return await getClanRankingsForLocation(id, params, this.apiClient)
+    }
+
+    /**
+     * Get player rankings for a specific location
+     *
+     * @param {string} id
+     * @param {ILocationFullRequestParams} params
+     */
+    public async getPlayerRankingsForLocation(id: string, params: ILocationFullRequestParams): Promise<IPlayer[]> {
+        return await getPlayerRankingsForLocation(id, params, this.apiClient)
+    }
+
+    /**
+     * Get clan rankings for a specific location
+     *
+     * @param {string} id
+     * @param {ILocationFullRequestParams} params
+     */
+    public async getClanWarRankingsForLocation(id: string, params: ILocationFullRequestParams): Promise<IClan[]> {
+        return await getClanRankingsForLocation(id, params, this.apiClient)
     }
 }
