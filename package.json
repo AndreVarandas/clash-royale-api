@@ -44,7 +44,7 @@
     "typescript": "^3.3.1"
   },
   "dependencies": {
-    "@types/jest": "^24.0.0",
+    "@types/jest": "^24.0.4",
     "axios": "^0.18.0"
   },
   "files": [
