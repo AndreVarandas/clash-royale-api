@@ -30,7 +30,7 @@
     "docs": "typedoc docs src"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "2.1.0",
+    "cz-conventional-changelog": "3.0.0",
     "husky": "^3.0.0",
     "jest": "^24.1.0",
     "prettier": "^1.16.4",
