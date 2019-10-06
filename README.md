@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="https://raw.githubusercontent.com/AndreVarandas/clash-royale-api/master/art/logo.png" width="400" height="260" alt="Clash Royale Official API Wrapper logo">
+</p>
+
 # Clash Royale Official API Wrapper
 
 [![npm (scoped)](https://img.shields.io/npm/v/@varandas/clash-royale-api.svg)](https://www.npmjs.com/package/@varandas/clash-royale-api)
@@ -93,7 +97,7 @@ All api calls are asynchronous and used in the same way as above in the getCards
 ```typescript
 
 /**
-* Note: 
+* Note:
 * Only the name property is required.
 */
 export interface IClanRequestParams {
@@ -146,7 +150,7 @@ export interface IClanRequestParams {
 ```typescript
 
 /**
-* Note: 
+* Note:
 * Only the name property is required.
 */
 export interface ITournamentRequestParams {
@@ -202,6 +206,12 @@ export interface ILocationRequestParams {
 ```
 
 [LICENSE - MIT](LICENSE)
+
+---
+
+## Credits
+
+Logo by [Caneco](httsp://www.twitter.com/caneco).
 
 ---
 
