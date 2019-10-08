@@ -211,7 +211,7 @@ export interface ILocationRequestParams {
 
 ## Credits
 
-Logo by [Caneco](httsp://www.twitter.com/caneco).
+Logo by [Caneco](https://twitter.com/caneco).
 
 ---
 
