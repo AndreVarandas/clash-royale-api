@@ -30,13 +30,14 @@
     "docs": "typedoc docs src"
   },
   "devDependencies": {
+    "@types/jest": "^25.1.0",
     "cz-conventional-changelog": "3.1.0",
     "husky": "^4.0.2",
-    "jest": "^24.1.0",
+    "jest": "^25.2.4",
     "prettier": "^2.0.0",
     "rimraf": "^3.0.0",
     "semantic-release": "^17.0.0",
-    "ts-jest": "^25.1.0",
+    "ts-jest": "^25.3.0",
     "ts-node": "^8.0.2",
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.18.0",
@@ -44,7 +45,6 @@
     "typescript": "^3.3.1"
   },
   "dependencies": {
-    "@types/jest": "^25.1.0",
     "axios": "^0.19.0"
   },
   "files": [
