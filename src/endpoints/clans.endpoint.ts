@@ -1,5 +1,6 @@
 import { AxiosInstance } from 'axios'
 import { IClan, IClanDetails, IClanMember, IClanRequestParams, ICurrentWar, IWarlog } from '../interfaces'
+import { ICurrentRiverRace } from '../interfaces/river_race.interface'
 
 /**
  * NOTE From the DOCS:
@@ -72,5 +73,16 @@ const getClanCurrentWar = async (tag: string, apiClient: AxiosInstance): Promise
     const currentWar = await apiClient.get(`/clans/${encodeURIComponent(tag)}/currentwar`)
     return currentWar.data
 }
+/**
+ * Retrieve information about clan's current river race
+ *
+ *
+ * @param {string} tag
+ * @param {AxiosInstance} apiClient
+ */
+const getClanCurrentRiveRace = async (tag: string, apiClient: AxiosInstance): Promise<ICurrentRiverRace> => {
+    const currentRiverRace = await apiClient.get(`/clans/${encodeURIComponent(tag)}/currentriverrace`)
+    return currentRiverRace.data
+}
 
-export { getClans, getClanByTag, getClanMembers, getClanWarlog, getClanCurrentWar }
+export { getClans, getClanByTag, getClanMembers, getClanWarlog, getClanCurrentWar, getClanCurrentRiveRace }

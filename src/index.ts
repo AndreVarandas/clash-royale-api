@@ -4,6 +4,7 @@ import { getAxiosInstance } from './communications'
 import {
     getCards,
     getClanByTag,
+    getClanCurrentRiveRace,
     getClanCurrentWar,
     getClanMembers,
     getClanRankingsForLocation,
@@ -27,12 +28,15 @@ import {
     IClanDetails,
     IClanMember,
     IClanRequestParams,
+    ICurrentRiverRace,
     ICurrentWar,
     IGlobalTournaments,
     ILocation,
     ILocationFullRequestParams,
     ILocationRequestParams,
     IPlayer,
+    IRiverRaceClan,
+    IRiverRaceParticipant,
     ITournament,
     ITournamentDetails,
     ITournamentRequestParams,
@@ -105,6 +109,18 @@ export class ClashRoyaleAPI {
      */
     public async getClanCurrentWar(tag: string): Promise<ICurrentWar> {
         return await getClanCurrentWar(tag, this.apiClient)
+    }
+    /**
+     * Retrieve information about clan's current clan war
+     *
+     * Note:
+     * When ICurrentWar.warEndTime is undefined, the war is still in collection.
+     * Search for ICurrentWar.collectionEndTime instead
+     *
+     * @param {string} tag
+     */
+    public async getClanCurrentRiveRace(tag: string): Promise<ICurrentRiverRace> {
+        return await getClanCurrentRiveRace(tag, this.apiClient)
     }
 
     /**
