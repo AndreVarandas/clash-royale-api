@@ -16,6 +16,3 @@ script:
 after_success:
   - codecov
   - yarn semantic-release
-branches:
-  except:
-    - "/^v\\d+\\.\\d+\\.\\d+$/"
