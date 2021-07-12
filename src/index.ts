@@ -111,7 +111,7 @@ export class ClashRoyaleAPI {
         return await getClanCurrentWar(tag, this.apiClient)
     }
     /**
-     * Retrieve information about clan's current clan war
+     * Retrieve information about clan's current river race
      *
      * Note:
      * When ICurrentWar.warEndTime is undefined, the war is still in collection.

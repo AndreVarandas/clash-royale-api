@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> @varandas/clash-royale-api</h1>
+			<h1>@varandas/clash-royale-api</h1>
 		</div>
 	</div>
 </header>
@@ -64,23 +64,201 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="clash-royale-official-api-wrapper">Clash Royale Official API Wrapper</h1>
+				<p align="center">
+					<img src="https://raw.githubusercontent.com/AndreVarandas/clash-royale-api/master/art/logo.png" width="400" height="260" alt="Clash Royale Official API Wrapper logo">
+				</p>
+				<a href="#clash-royale-official-api-wrapper" id="clash-royale-official-api-wrapper" style="color: inherit; text-decoration: none;">
+					<h1>Clash Royale Official API Wrapper</h1>
+				</a>
 				<p><a href="https://www.npmjs.com/package/@varandas/clash-royale-api"><img src="https://img.shields.io/npm/v/@varandas/clash-royale-api.svg" alt="npm (scoped)"></a>
 				<a href="https://npmcharts.com/compare/@varandas/clash-royale-api"><img src="https://img.shields.io/npm/dm/@varandas/clash-royale-api.svg" alt="npm"></a></p>
 				<p><a href="https://travis-ci.org/AndreVarandas/clash-royale-api"><img src="https://travis-ci.org/AndreVarandas/clash-royale-api.svg?branch=master" alt="Build Status"></a>
 					<a href="https://codecov.io/gh/AndreVarandas/clash-royale-api/"><img src="https://img.shields.io/codecov/c/github/AndreVarandas/clash-royale-api/master.svg?style=flat-square" alt="Codecov Coverage"></a>
 					<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a>
-					<img src="https://badges.greenkeeper.io/andrevarandas/clash-royale-api.svg?style=flat" alt="Green Keeper">
+					<a href="https://snyk.io/test/github/AndreVarandas/clash-royale-api?targetFile=package.json"><img src="https://snyk.io/test/github/AndreVarandas/clash-royale-api/badge.svg?targetFile=package.json" alt="Known Vulnerabilities"></a>
 				<a href="https://github.com/AndreVarandas/clash-royale-api/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a></p>
 				<p>An asynchronous wrapper for the official Clash Royale API.</p>
 				<p>Official API Link <a href="https://developer.clashroyale.com">https://developer.clashroyale.com</a></p>
-				<h2 id="getting-started">Getting started</h2>
-				<p>Coming soon.</p>
-				<h2 id="usage">Usage</h2>
-				<p>Coming soon.</p>
-				<h2 id="methods">Methods</h2>
-				<p>Coming soon.</p>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h2>Getting started</h2>
+				</a>
+				<p>In order to use the official api, you will need a token. This token can be obtained at the Official API website <a href="https://developer.clashroyale.com">https://developer.clashroyale.com</a>.</p>
+				<p>Once you register and get the token, you are ready to start.</p>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>Install the package:</p>
+				<ul>
+					<li><code>yarn add @varandas/clash-royale-api</code></li>
+				</ul>
+				<p>OR</p>
+				<ul>
+					<li><code>npm i --save @varandas/clash-royale-api</code></li>
+				</ul>
+				<p>Usage:</p>
+				<pre><code class="language-javascript">
+<span class="hljs-comment">// Import the package</span>
+<span class="hljs-keyword">const</span> { ClashRoyaleAPI } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@varandas/clash-royale-api'</span>)
+
+<span class="hljs-comment">// Initialize the api</span>
+<span class="hljs-keyword">const</span> api = <span class="hljs-keyword">new</span> ClashRoyaleAPI(<span class="hljs-string">'the token you got from the api'</span>)
+
+<span class="hljs-comment">// Use the api to get cards</span>
+api.getCards()
+    .then(<span class="hljs-function"><span class="hljs-params">cards</span> =&gt;</span> {
+        <span class="hljs-comment">// Do something with the cards</span>
+    })
+    .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
+        <span class="hljs-comment">// handle errors</span>
+    })
+</code></pre>
+				<a href="#methods" id="methods" style="color: inherit; text-decoration: none;">
+					<h2>Methods</h2>
+				</a>
+				<p>All api calls are asynchronous and used in the same way as above in the getCards example.</p>
+				<p><strong>Clans</strong></p>
+				<ul>
+					<li><code>getClans(params: IClanRequestParams)</code> - Returns a list of all the available clans.</li>
+					<li><code>getClanByTag(tag: string)</code> - Returns details about a specific clan.</li>
+					<li><code>getClanMembers(tag: string)</code> - Returns a list of clan members.</li>
+					<li><code>getClanWarlog(tag: string)</code> - Returns the war log for a clan</li>
+					<li><code>getClanCurrentWar(tag: string)</code> -  Retrieve information about clan&#39;s current clan war</li>
+					<li><code>getClanCurrentRiveRace(tag: string)</code> - Retrieve information about clan&#39;s current river race</li>
+				</ul>
+				<p><strong>Players</strong></p>
+				<ul>
+					<li><code>getPlayerByTag(tag: string)</code> - Get information about a single player by player tag.</li>
+					<li><code>getPlayerUpcomingChests(tag: string)</code> - Get list of reward chests that the player will receive next in the game.</li>
+					<li><code>getPlayerBattleLog(tag: string)</code> - Get list of recent battle results for a player.</li>
+				</ul>
+				<p><strong>Tournaments</strong></p>
+				<ul>
+					<li><code>getTournaments(params: ITournamentRequestParams)</code> - Search all tournaments by name.</li>
+					<li><code>getTournamentByTag(tag: string)</code> - Get information about a single tournament by a tournament tag.</li>
+					<li><code>getGlobalTournaments</code> - List all available global tournaments.</li>
+				</ul>
+				<p><strong>Cards</strong></p>
+				<ul>
+					<li><code>getCards</code> - Get list of all available cards.</li>
+				</ul>
+				<p><strong>Locations</strong></p>
+				<ul>
+					<li><code>getLocations(params: ILocationRequestParams)</code> - List all available locations.</li>
+					<li><code>getLocationById(id: string, params: ILocationFullRequestParams)</code> - Get information about specific location.</li>
+					<li><code>getClanRankinsForLocation(id: string, params: ILocationFullRequestParams)</code> - Get clan rankings for a specific location.</li>
+					<li><code>getPlayerRankingsForLocation(id: string, params: ILocationFullRequestParams)</code> - Get player rankings for a specific location.</li>
+					<li><code>getClanWarRankingsForLocation(id: string, params: ILocationFullRequestParams)</code> - Get clan rankings for a specific location.</li>
+				</ul>
+				<a href="#configuration-objects" id="configuration-objects" style="color: inherit; text-decoration: none;">
+					<h2>Configuration Objects</h2>
+				</a>
+				<p><strong>IClanRequestParams</strong></p>
+				<pre><code class="language-typescript">
+<span class="hljs-comment">/**
+* Note:
+* Only the name property is required.
+*/</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> IClanRequestParams {
+    <span class="hljs-comment">/**
+     * Search clans by name.
+     * If name is used as part of search query, it needs to be at least three
+     * characters long. Name search parameter is interpreted as wild card
+     * search, so it may appear anywhere in the clan name.
+     */</span>
+    name: <span class="hljs-built_in">string</span>
+    <span class="hljs-comment">/**
+     * Filter by clan location identifier. For list of available locations,
+     * refer to getLocations operation.
+     */</span>
+    locationId?: <span class="hljs-built_in">number</span>
+    <span class="hljs-comment">/**
+     * Filter by minimum amount of clan members.
+     */</span>
+    minMembers?: <span class="hljs-built_in">number</span>
+    <span class="hljs-comment">/**
+     * Filter by maximum amount of clan members.
+     */</span>
+    maxMembers?: <span class="hljs-built_in">number</span>
+    <span class="hljs-comment">/**
+     * Filter by minimum amount of clan score.
+     */</span>
+    minScore?: <span class="hljs-built_in">number</span>
+    <span class="hljs-comment">/**
+     * Limit the number of items returned in the response.
+     */</span>
+    limit?: <span class="hljs-built_in">number</span>
+    <span class="hljs-comment">/**
+     * Return only items that occur after this marker.
+     * After marker can be found from the response, inside the 'paging' property.
+     * Note that only after or before can be specified for a request, not both.
+     */</span>
+    after?: <span class="hljs-built_in">number</span>
+    <span class="hljs-comment">/**
+     * Return only items that occur before this marker.
+     * Before marker can be found from the response, inside the 'paging' property.
+     * Note that only after or before can be specified for a request, not both.
+     */</span>
+    before?: <span class="hljs-built_in">number</span>
+}
+</code></pre>
+				<p><strong>ITournamentRequestParams</strong></p>
+				<pre><code class="language-typescript">
+<span class="hljs-comment">/**
+* Note:
+* Only the name property is required.
+*/</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> ITournamentRequestParams {
+    <span class="hljs-comment">/**
+     * Search tournaments by name.
+     */</span>
+    name: <span class="hljs-built_in">string</span>
+    <span class="hljs-comment">/**
+     * Limit the number of items returned in the response.
+     */</span>
+    limit?: <span class="hljs-built_in">number</span>
+    <span class="hljs-comment">/**
+     * Return only items that occur after this marker.
+     * After marker can be found from the response, inside the 'paging' property.
+     * Note that only after or before can be specified for a request, not both.
+     */</span>
+    after?: <span class="hljs-built_in">number</span>
+    <span class="hljs-comment">/**
+     * Return only items that occur before this marker.
+     * Before marker can be found from the response, inside the 'paging' property.
+     * Note that only after or before can be specified for a request, not both.
+     */</span>
+    before?: <span class="hljs-built_in">number</span>
+}
+</code></pre>
+				<p><strong>ILocationRequestParams</strong></p>
+				<pre><code class="language-typescript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> ILocationRequestParams {
+    <span class="hljs-comment">/**
+     * Limit the number of items returned in the response.
+     */</span>
+    limit?: <span class="hljs-built_in">number</span>
+    <span class="hljs-comment">/**
+     * Return only items that occur after this marker.
+     * After marker can be found from the response,
+     * inside the 'paging' property. Note that only
+     * after or before can be specified for a request, not both.
+     */</span>
+    after?: <span class="hljs-built_in">number</span>
+    <span class="hljs-comment">/**
+     * Return only items that occur before this marker.
+     * Before marker can be found from the response,
+     * inside the 'paging' property. Note that only
+     * after or before can be specified for a request, not both.
+     */</span>
+    before?: <span class="hljs-built_in">number</span>
+}
+</code></pre>
 				<p><a href="LICENSE">LICENSE - MIT</a></p>
+				<hr>
+				<a href="#credits" id="credits" style="color: inherit; text-decoration: none;">
+					<h2>Credits</h2>
+				</a>
+				<p>Logo by <a href="https://twitter.com/caneco">Caneco</a>.</p>
 				<hr>
 				<p>This content is not affiliated with, endorsed, sponsored, or specifically approved by Supercell and Supercell is not responsible for it. For more information see <a href="http://www.supercell.com/fan-content-policy">Supercell’s Fan Content Policy</a>.</p>
 			</div>
@@ -92,64 +270,67 @@
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/___tests___clashroyaleapi_test_.html">"__tests__/<wbr>Clash<wbr>RoyaleAPI.test"</a>
+						<a href="modules/___tests___clashroyaleapi_test_.html">&quot;__tests__/<wbr>Clash<wbr>RoyaleAPI.test&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_communications_index_.html">"communications/index"</a>
+						<a href="modules/_communications_index_.html">&quot;communications/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_constants_index_.html">"constants/index"</a>
+						<a href="modules/_constants_index_.html">&quot;constants/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_endpoints_cards_endpoint_.html">"endpoints/cards.endpoint"</a>
+						<a href="modules/_endpoints_cards_endpoint_.html">&quot;endpoints/cards.endpoint&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_endpoints_clans_endpoint_.html">"endpoints/clans.endpoint"</a>
+						<a href="modules/_endpoints_clans_endpoint_.html">&quot;endpoints/clans.endpoint&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_endpoints_index_.html">"endpoints/index"</a>
+						<a href="modules/_endpoints_index_.html">&quot;endpoints/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_endpoints_locations_endpoint_.html">"endpoints/locations.endpoint"</a>
+						<a href="modules/_endpoints_locations_endpoint_.html">&quot;endpoints/locations.endpoint&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_endpoints_players_endpoint_.html">"endpoints/players.endpoint"</a>
+						<a href="modules/_endpoints_players_endpoint_.html">&quot;endpoints/players.endpoint&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_endpoints_tournaments_endpoint_.html">"endpoints/tournaments.endpoint"</a>
+						<a href="modules/_endpoints_tournaments_endpoint_.html">&quot;endpoints/tournaments.endpoint&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
+						<a href="modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_interfaces_arena_interface_.html">"interfaces/arena.interface"</a>
+						<a href="modules/_interfaces_arena_interface_.html">&quot;interfaces/arena.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_interfaces_battle_interface_.html">"interfaces/battle.interface"</a>
+						<a href="modules/_interfaces_battle_interface_.html">&quot;interfaces/battle.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_interfaces_card_interface_.html">"interfaces/card.interface"</a>
+						<a href="modules/_interfaces_card_interface_.html">&quot;interfaces/card.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_interfaces_chest_interface_.html">"interfaces/chest.interface"</a>
+						<a href="modules/_interfaces_chest_interface_.html">&quot;interfaces/chest.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_interfaces_clan_interface_.html">"interfaces/clan.interface"</a>
+						<a href="modules/_interfaces_clan_interface_.html">&quot;interfaces/clan.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_interfaces_index_.html">"interfaces/index"</a>
+						<a href="modules/_interfaces_index_.html">&quot;interfaces/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_interfaces_location_interface_.html">"interfaces/location.interface"</a>
+						<a href="modules/_interfaces_location_interface_.html">&quot;interfaces/location.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_interfaces_player_interface_.html">"interfaces/player.interface"</a>
+						<a href="modules/_interfaces_player_interface_.html">&quot;interfaces/player.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_interfaces_tournament_interface_.html">"interfaces/tournament.interface"</a>
+						<a href="modules/_interfaces_river_race_interface_.html">&quot;interfaces/river_<wbr>race.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_interfaces_war_interface_.html">"interfaces/war.interface"</a>
+						<a href="modules/_interfaces_tournament_interface_.html">&quot;interfaces/tournament.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_interfaces_war_interface_.html">&quot;interfaces/war.interface&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -172,6 +353,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -220,7 +402,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
