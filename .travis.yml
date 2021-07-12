@@ -6,7 +6,7 @@ branches:
 notifications:
   email: false
 node_js:
-  - '10'
+  - '14'
 script:
   - yarn lint
   - yarn global add codecov -g
