@@ -80,9 +80,9 @@ const getClanCurrentWar = async (tag: string, apiClient: AxiosInstance): Promise
  * @param {string} tag
  * @param {AxiosInstance} apiClient
  */
-const getClanCurrentRiveRace = async (tag: string, apiClient: AxiosInstance): Promise<ICurrentRiverRace> => {
+const getClanCurrentRiverRace = async (tag: string, apiClient: AxiosInstance): Promise<ICurrentRiverRace> => {
     const currentRiverRace = await apiClient.get(`/clans/${encodeURIComponent(tag)}/currentriverrace`)
     return currentRiverRace.data
 }
 
-export { getClans, getClanByTag, getClanMembers, getClanWarlog, getClanCurrentWar, getClanCurrentRiveRace }
+export { getClans, getClanByTag, getClanMembers, getClanWarlog, getClanCurrentWar, getClanCurrentRiverRace }
