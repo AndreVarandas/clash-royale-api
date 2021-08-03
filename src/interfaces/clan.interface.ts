@@ -49,7 +49,7 @@ export interface IClanRequestParams {
      * characters long. Name search parameter is interpreted as wild card
      * search, so it may appear anywhere in the clan name.
      */
-    name: string
+    name?: string
     /**
      * Filter by clan location identifier. For list of available locations,
      * refer to getLocations operation.
