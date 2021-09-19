@@ -4,7 +4,7 @@ import { getAxiosInstance } from './communications'
 import {
     getCards,
     getClanByTag,
-    getClanCurrentRiveRace,
+    getClanCurrentRiverRace,
     getClanCurrentWar,
     getClanMembers,
     getClanRankingsForLocation,
@@ -119,8 +119,8 @@ export class ClashRoyaleAPI {
      *
      * @param {string} tag
      */
-    public async getClanCurrentRiveRace(tag: string): Promise<ICurrentRiverRace> {
-        return await getClanCurrentRiveRace(tag, this.apiClient)
+    public async getClanCurrentRiverRace(tag: string): Promise<ICurrentRiverRace> {
+        return await getClanCurrentRiverRace(tag, this.apiClient)
     }
 
     /**
