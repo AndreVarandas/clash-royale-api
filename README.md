@@ -17,6 +17,10 @@ An asynchronous wrapper for the official Clash Royale API.
 
 Official API Link [https://developer.clashroyale.com](https://developer.clashroyale.com)
 
+## Important note
+
+This wrapper will only work from a nodejs server app. The official clash royale api is, unfortunately, blocking requests done directly from the browser.
+
 ## Getting started
 
 In order to use the official api, you will need a token. This token can be obtained at the Official API website [https://developer.clashroyale.com](https://developer.clashroyale.com).
@@ -27,16 +31,15 @@ Once you register and get the token, you are ready to start.
 
 Install the package:
 
-- `yarn add @varandas/clash-royale-api`
+-   `yarn add @varandas/clash-royale-api`
 
 OR
 
-- `npm i --save @varandas/clash-royale-api`
+-   `npm i --save @varandas/clash-royale-api`
 
 Usage:
 
 ```javascript
-
 // Import the package
 const { ClashRoyaleAPI } = require('@varandas/clash-royale-api')
 
@@ -45,13 +48,12 @@ const api = new ClashRoyaleAPI('the token you got from the api')
 
 // Use the api to get cards
 api.getCards()
-    .then(cards => {
+    .then((cards) => {
         // Do something with the cards
     })
-    .catch(err => {
+    .catch((err) => {
         // handle errors
     })
-
 ```
 
 ## Methods
@@ -60,47 +62,46 @@ All api calls are asynchronous and used in the same way as above in the getCards
 
 **Clans**
 
-- `getClans(params: IClanRequestParams)` - Returns a list of all the available clans.
-- `getClanByTag(tag: string)` - Returns details about a specific clan.
-- `getClanMembers(tag: string)` - Returns a list of clan members.
-- `getClanWarlog(tag: string)` - Returns the war log for a clan
-- `getClanCurrentWar(tag: string)` -  Retrieve information about clan's current clan war
-- `getClanCurrentRiverRace(tag: string)` - Retrieve information about clan's current river race
+-   `getClans(params: IClanRequestParams)` - Returns a list of all the available clans.
+-   `getClanByTag(tag: string)` - Returns details about a specific clan.
+-   `getClanMembers(tag: string)` - Returns a list of clan members.
+-   `getClanWarlog(tag: string)` - Returns the war log for a clan
+-   `getClanCurrentWar(tag: string)` - Retrieve information about clan's current clan war
+-   `getClanCurrentRiverRace(tag: string)` - Retrieve information about clan's current river race
 
 **Players**
 
-- `getPlayerByTag(tag: string)` - Get information about a single player by player tag.
-- `getPlayerUpcomingChests(tag: string)` - Get list of reward chests that the player will receive next in the game.
-- `getPlayerBattleLog(tag: string)` - Get list of recent battle results for a player.
+-   `getPlayerByTag(tag: string)` - Get information about a single player by player tag.
+-   `getPlayerUpcomingChests(tag: string)` - Get list of reward chests that the player will receive next in the game.
+-   `getPlayerBattleLog(tag: string)` - Get list of recent battle results for a player.
 
 **Tournaments**
 
-- `getTournaments(params: ITournamentRequestParams)` - Search all tournaments by name.
-- `getTournamentByTag(tag: string)` - Get information about a single tournament by a tournament tag.
-- `getGlobalTournaments` - List all available global tournaments.
+-   `getTournaments(params: ITournamentRequestParams)` - Search all tournaments by name.
+-   `getTournamentByTag(tag: string)` - Get information about a single tournament by a tournament tag.
+-   `getGlobalTournaments` - List all available global tournaments.
 
 **Cards**
 
-- `getCards` - Get list of all available cards.
+-   `getCards` - Get list of all available cards.
 
 **Locations**
 
-- `getLocations(params: ILocationRequestParams)` - List all available locations.
-- `getLocationById(id: string, params: ILocationFullRequestParams)` - Get information about specific location.
-- `getClanRankinsForLocation(id: string, params: ILocationFullRequestParams)` - Get clan rankings for a specific location.
-- `getPlayerRankingsForLocation(id: string, params: ILocationFullRequestParams)` - Get player rankings for a specific location.
-- `getClanWarRankingsForLocation(id: string, params: ILocationFullRequestParams)` - Get clan rankings for a specific location.
+-   `getLocations(params: ILocationRequestParams)` - List all available locations.
+-   `getLocationById(id: string, params: ILocationFullRequestParams)` - Get information about specific location.
+-   `getClanRankinsForLocation(id: string, params: ILocationFullRequestParams)` - Get clan rankings for a specific location.
+-   `getPlayerRankingsForLocation(id: string, params: ILocationFullRequestParams)` - Get player rankings for a specific location.
+-   `getClanWarRankingsForLocation(id: string, params: ILocationFullRequestParams)` - Get clan rankings for a specific location.
 
 ## Configuration Objects
 
 **IClanRequestParams**
 
 ```typescript
-
 /**
-* Note:
-* Only the name property is required.
-*/
+ * Note:
+ * Only the name property is required.
+ */
 export interface IClanRequestParams {
     /**
      * Search clans by name.
@@ -143,17 +144,15 @@ export interface IClanRequestParams {
      */
     before?: number
 }
-
 ```
 
 **ITournamentRequestParams**
 
 ```typescript
-
 /**
-* Note:
-* Only the name property is required.
-*/
+ * Note:
+ * Only the name property is required.
+ */
 export interface ITournamentRequestParams {
     /**
      * Search tournaments by name.
@@ -176,13 +175,11 @@ export interface ITournamentRequestParams {
      */
     before?: number
 }
-
 ```
 
 **ILocationRequestParams**
 
 ```typescript
-
 export interface ILocationRequestParams {
     /**
      * Limit the number of items returned in the response.
@@ -203,7 +200,6 @@ export interface ILocationRequestParams {
      */
     before?: number
 }
-
 ```
 
 [LICENSE - MIT](LICENSE)
