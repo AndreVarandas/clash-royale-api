@@ -1,1 +1,1 @@
-export const BASE_ENDPOINT = 'https://api.clashroyale.com/v1/'
+export const BASE_ENDPOINT = 'https://proxy.royaleapi.dev/v1/'
