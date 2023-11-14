@@ -7,10 +7,10 @@ import { BASE_ENDPOINT } from '../constants'
  * object for axios.
  */
 const defaultRequestConfig: AxiosRequestConfig = {
-    baseURL: BASE_ENDPOINT,
-    headers: {
-        'Content-Type': 'application/json',
-    },
+  baseURL: BASE_ENDPOINT,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 }
 
 /**
@@ -20,10 +20,10 @@ const defaultRequestConfig: AxiosRequestConfig = {
  * @param {string} token - The api token from https://developer.clashroyale.com
  */
 const getAxiosInstance = (token: string) => {
-    const authorization = `Bearer ${token}`
-    Object.assign(defaultRequestConfig.headers, { authorization })
+  const authorization = `Bearer ${token}`
+  Object.assign(defaultRequestConfig.headers, { authorization })
 
-    return axios.create(defaultRequestConfig)
+  return axios.create(defaultRequestConfig)
 }
 
 export { getAxiosInstance }

@@ -12,9 +12,12 @@ import { IBattleLog, IChest, IPlayer } from '../interfaces'
  * @param {string} tag
  * @param {AxiosInstance} apiClient
  */
-const getPlayerByTag = async (tag: string, apiClient: AxiosInstance): Promise<IPlayer> => {
-    const player = await apiClient.get(`/players/${encodeURIComponent(tag)}`)
-    return player.data
+const getPlayerByTag = async (
+  tag: string,
+  apiClient: AxiosInstance,
+): Promise<IPlayer> => {
+  const player = await apiClient.get(`/players/${encodeURIComponent(tag)}`)
+  return player.data
 }
 
 /**
@@ -23,9 +26,14 @@ const getPlayerByTag = async (tag: string, apiClient: AxiosInstance): Promise<IP
  * @param {string} tag
  * @param {AxiosInstance} apiClient
  */
-const getPlayerUpcomingChests = async (tag: string, apiClient: AxiosInstance): Promise<IChest[]> => {
-    const upcomingChests = await apiClient.get(`/players/${encodeURIComponent(tag)}/upcomingchests`)
-    return upcomingChests.data.items
+const getPlayerUpcomingChests = async (
+  tag: string,
+  apiClient: AxiosInstance,
+): Promise<IChest[]> => {
+  const upcomingChests = await apiClient.get(
+    `/players/${encodeURIComponent(tag)}/upcomingchests`,
+  )
+  return upcomingChests.data.items
 }
 
 /**
@@ -34,9 +42,14 @@ const getPlayerUpcomingChests = async (tag: string, apiClient: AxiosInstance): P
  * @param {string} tag
  * @param {AxiosInstance} apiClient
  */
-const getPlayerBattleLog = async (tag: string, apiClient: AxiosInstance): Promise<IBattleLog[]> => {
-    const playerBattleLog = await apiClient.get(`/players/${encodeURIComponent(tag)}/battlelog`)
-    return playerBattleLog.data
+const getPlayerBattleLog = async (
+  tag: string,
+  apiClient: AxiosInstance,
+): Promise<IBattleLog[]> => {
+  const playerBattleLog = await apiClient.get(
+    `/players/${encodeURIComponent(tag)}/battlelog`,
+  )
+  return playerBattleLog.data
 }
 
 export { getPlayerByTag, getPlayerUpcomingChests, getPlayerBattleLog }

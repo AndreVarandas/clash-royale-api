@@ -7,8 +7,8 @@ import { ICard } from '../interfaces'
  * @param {AxiosInstance} apiClient
  */
 const getCards = async (apiClient: AxiosInstance): Promise<ICard[]> => {
-    const results = await apiClient.get('/cards')
-    return results.data.items
+  const results = await apiClient.get('/cards')
+  return results.data.items
 }
 
 export { getCards }

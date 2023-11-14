@@ -23,9 +23,6 @@ coverage
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
-
 # Dependency directories
 node_modules/
 
@@ -62,3 +59,6 @@ lib
 
 # Remove test folder
 test
+
+# Ignore docs folder
+docs

@@ -1,10 +1,10 @@
 export interface ICardIconUrls {
-    medium: string
+  medium: string
 }
 
 export interface ICard {
-    id: number
-    name: string
-    maxLevel: number
-    iconUrls: ICardIconUrls
+  id: number
+  name: string
+  maxLevel: number
+  iconUrls: ICardIconUrls
 }

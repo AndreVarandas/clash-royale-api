@@ -1,5 +1,12 @@
 import { AxiosInstance } from 'axios'
-import { IClan, IClanDetails, IClanMember, IClanRequestParams, ICurrentWar, IWarlog } from '../interfaces'
+import {
+  IClan,
+  IClanDetails,
+  IClanMember,
+  IClanRequestParams,
+  ICurrentWar,
+  IWarlog,
+} from '../interfaces'
 import { ICurrentRiverRace } from '../interfaces/river_race.interface'
 
 /**
@@ -16,9 +23,12 @@ import { ICurrentRiverRace } from '../interfaces/river_race.interface'
  * @param {IClanRequestParams} params
  * @param {AxiosInstance} apiClient
  */
-const getClans = async (params: IClanRequestParams, apiClient: AxiosInstance): Promise<IClan[]> => {
-    const clans = await apiClient.get('/clans', { params })
-    return clans.data.items
+const getClans = async (
+  params: IClanRequestParams,
+  apiClient: AxiosInstance,
+): Promise<IClan[]> => {
+  const clans = await apiClient.get('/clans', { params })
+  return clans.data.items
 }
 
 /**
@@ -32,9 +42,12 @@ const getClans = async (params: IClanRequestParams, apiClient: AxiosInstance): P
  * @param {string} tag
  * @param {AxiosInstance} apiClient
  */
-const getClanByTag = async (tag: string, apiClient: AxiosInstance): Promise<IClanDetails> => {
-    const clan = await apiClient.get(`/clans/${encodeURIComponent(tag)}`)
-    return clan.data
+const getClanByTag = async (
+  tag: string,
+  apiClient: AxiosInstance,
+): Promise<IClanDetails> => {
+  const clan = await apiClient.get(`/clans/${encodeURIComponent(tag)}`)
+  return clan.data
 }
 
 /**
@@ -43,9 +56,14 @@ const getClanByTag = async (tag: string, apiClient: AxiosInstance): Promise<ICla
  * @param {string} tag
  * @param {AxiosInstance} apiClient
  */
-const getClanMembers = async (tag: string, apiClient: AxiosInstance): Promise<IClanMember[]> => {
-    const members = await apiClient.get(`/clans/${encodeURIComponent(tag)}/members`)
-    return members.data.items
+const getClanMembers = async (
+  tag: string,
+  apiClient: AxiosInstance,
+): Promise<IClanMember[]> => {
+  const members = await apiClient.get(
+    `/clans/${encodeURIComponent(tag)}/members`,
+  )
+  return members.data.items
 }
 
 /**
@@ -54,9 +72,12 @@ const getClanMembers = async (tag: string, apiClient: AxiosInstance): Promise<IC
  * @param {string} tag
  * @param {AxiosInstance} apiClient
  */
-const getClanWarlog = async (tag: string, apiClient: AxiosInstance): Promise<IWarlog[]> => {
-    const warLog = await apiClient.get(`/clans/${encodeURIComponent(tag)}/warlog`)
-    return warLog.data.items
+const getClanWarlog = async (
+  tag: string,
+  apiClient: AxiosInstance,
+): Promise<IWarlog[]> => {
+  const warLog = await apiClient.get(`/clans/${encodeURIComponent(tag)}/warlog`)
+  return warLog.data.items
 }
 
 /**
@@ -69,9 +90,14 @@ const getClanWarlog = async (tag: string, apiClient: AxiosInstance): Promise<IWa
  * @param {string} tag
  * @param {AxiosInstance} apiClient
  */
-const getClanCurrentWar = async (tag: string, apiClient: AxiosInstance): Promise<ICurrentWar> => {
-    const currentWar = await apiClient.get(`/clans/${encodeURIComponent(tag)}/currentwar`)
-    return currentWar.data
+const getClanCurrentWar = async (
+  tag: string,
+  apiClient: AxiosInstance,
+): Promise<ICurrentWar> => {
+  const currentWar = await apiClient.get(
+    `/clans/${encodeURIComponent(tag)}/currentwar`,
+  )
+  return currentWar.data
 }
 /**
  * Retrieve information about clan's current river race
@@ -80,9 +106,21 @@ const getClanCurrentWar = async (tag: string, apiClient: AxiosInstance): Promise
  * @param {string} tag
  * @param {AxiosInstance} apiClient
  */
-const getClanCurrentRiverRace = async (tag: string, apiClient: AxiosInstance): Promise<ICurrentRiverRace> => {
-    const currentRiverRace = await apiClient.get(`/clans/${encodeURIComponent(tag)}/currentriverrace`)
-    return currentRiverRace.data
+const getClanCurrentRiverRace = async (
+  tag: string,
+  apiClient: AxiosInstance,
+): Promise<ICurrentRiverRace> => {
+  const currentRiverRace = await apiClient.get(
+    `/clans/${encodeURIComponent(tag)}/currentriverrace`,
+  )
+  return currentRiverRace.data
 }
 
-export { getClans, getClanByTag, getClanMembers, getClanWarlog, getClanCurrentWar, getClanCurrentRiverRace }
+export {
+  getClans,
+  getClanByTag,
+  getClanMembers,
+  getClanWarlog,
+  getClanCurrentWar,
+  getClanCurrentRiverRace,
+}

@@ -1,4 +1,4 @@
 export interface IArena {
-    id: number
-    name: string
+  id: number
+  name: string
 }
