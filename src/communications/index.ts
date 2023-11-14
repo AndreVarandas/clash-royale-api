@@ -21,7 +21,10 @@ const defaultRequestConfig: AxiosRequestConfig = {
  */
 const getAxiosInstance = (token: string) => {
   const authorization = `Bearer ${token}`
-  Object.assign(defaultRequestConfig.headers, { authorization })
+  defaultRequestConfig.headers = {
+    ...defaultRequestConfig.headers,
+    authorization,
+  }
 
   return axios.create(defaultRequestConfig)
 }
