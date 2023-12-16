@@ -25,10 +25,9 @@
   "scripts": {
     "commit": "npx git-cz",
     "test": "jest --config jest.config.ts",
-    "build": "rimraf dist && tsc",
+    "build": "rimraf lib && tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "semantic-release": "semantic-release",
-    "docs": "typedoc docs src",
     "prepare": "husky install"
   },
   "devDependencies": {
