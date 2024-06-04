@@ -21,8 +21,8 @@ import {
   getTournaments,
 } from './endpoints'
 import {
+  CardResponse,
   IBattleLog,
-  ICard,
   IChest,
   IClan,
   IClanDetails,
@@ -35,8 +35,6 @@ import {
   ILocationFullRequestParams,
   ILocationRequestParams,
   IPlayer,
-  IRiverRaceClan,
-  IRiverRaceParticipant,
   ITournament,
   ITournamentDetails,
   ITournamentRequestParams,
@@ -185,7 +183,7 @@ export class ClashRoyaleAPI {
   /**
    * Get list of all available cards.
    */
-  public async getCards(): Promise<ICard[]> {
+  public async getCards(): Promise<CardResponse> {
     return await getCards(this.apiClient)
   }
 
@@ -206,10 +204,7 @@ export class ClashRoyaleAPI {
    * @param {string} id
    * @param {ILocationFullRequestParams} params
    */
-  public async getLocationById(
-    id: string,
-    params: ILocationFullRequestParams,
-  ): Promise<ILocation> {
+  public async getLocationById(id: string): Promise<ILocation> {
     return await getLocationById(id, this.apiClient)
   }
 

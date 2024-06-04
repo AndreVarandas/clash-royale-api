@@ -31,11 +31,11 @@ Once you register and get the token, you are ready to start.
 
 Install the package:
 
--   `yarn add @varandas/clash-royale-api`
+- `yarn add @varandas/clash-royale-api`
 
 OR
 
--   `npm i --save @varandas/clash-royale-api`
+- `npm i --save @varandas/clash-royale-api`
 
 Usage:
 
@@ -47,13 +47,14 @@ const { ClashRoyaleAPI } = require('@varandas/clash-royale-api')
 const api = new ClashRoyaleAPI('the token you got from the api')
 
 // Use the api to get cards
-api.getCards()
-    .then((cards) => {
-        // Do something with the cards
-    })
-    .catch((err) => {
-        // handle errors
-    })
+api
+  .getCards()
+  .then(cards => {
+    // Do something with the cards
+  })
+  .catch(err => {
+    // handle errors
+  })
 ```
 
 ## Methods
@@ -62,36 +63,36 @@ All api calls are asynchronous and used in the same way as above in the getCards
 
 **Clans**
 
--   `getClans(params: IClanRequestParams)` - Returns a list of all the available clans.
--   `getClanByTag(tag: string)` - Returns details about a specific clan.
--   `getClanMembers(tag: string)` - Returns a list of clan members.
--   `getClanWarlog(tag: string)` - Returns the war log for a clan
--   `getClanCurrentWar(tag: string)` - Retrieve information about clan's current clan war
--   `getClanCurrentRiverRace(tag: string)` - Retrieve information about clan's current river race
+- `getClans(params: IClanRequestParams)` - Returns a list of all the available clans.
+- `getClanByTag(tag: string)` - Returns details about a specific clan.
+- `getClanMembers(tag: string)` - Returns a list of clan members.
+- `getClanWarlog(tag: string)` - Returns the war log for a clan
+- `getClanCurrentWar(tag: string)` - Retrieve information about clan's current clan war
+- `getClanCurrentRiverRace(tag: string)` - Retrieve information about clan's current river race
 
 **Players**
 
--   `getPlayerByTag(tag: string)` - Get information about a single player by player tag.
--   `getPlayerUpcomingChests(tag: string)` - Get list of reward chests that the player will receive next in the game.
--   `getPlayerBattleLog(tag: string)` - Get list of recent battle results for a player.
+- `getPlayerByTag(tag: string)` - Get information about a single player by player tag.
+- `getPlayerUpcomingChests(tag: string)` - Get list of reward chests that the player will receive next in the game.
+- `getPlayerBattleLog(tag: string)` - Get list of recent battle results for a player.
 
 **Tournaments**
 
--   `getTournaments(params: ITournamentRequestParams)` - Search all tournaments by name.
--   `getTournamentByTag(tag: string)` - Get information about a single tournament by a tournament tag.
--   `getGlobalTournaments` - List all available global tournaments.
+- `getTournaments(params: ITournamentRequestParams)` - Search all tournaments by name.
+- `getTournamentByTag(tag: string)` - Get information about a single tournament by a tournament tag.
+- `getGlobalTournaments` - List all available global tournaments.
 
 **Cards**
 
--   `getCards` - Get list of all available cards.
+- `getCards` - Get list of all available cards.
 
 **Locations**
 
--   `getLocations(params: ILocationRequestParams)` - List all available locations.
--   `getLocationById(id: string, params: ILocationFullRequestParams)` - Get information about specific location.
--   `getClanRankinsForLocation(id: string, params: ILocationFullRequestParams)` - Get clan rankings for a specific location.
--   `getPlayerRankingsForLocation(id: string, params: ILocationFullRequestParams)` - Get player rankings for a specific location.
--   `getClanWarRankingsForLocation(id: string, params: ILocationFullRequestParams)` - Get clan rankings for a specific location.
+- `getLocations(params: ILocationRequestParams)` - List all available locations.
+- `getLocationById(id: string, params: ILocationFullRequestParams)` - Get information about specific location.
+- `getClanRankinsForLocation(id: string, params: ILocationFullRequestParams)` - Get clan rankings for a specific location.
+- `getPlayerRankingsForLocation(id: string, params: ILocationFullRequestParams)` - Get player rankings for a specific location.
+- `getClanWarRankingsForLocation(id: string, params: ILocationFullRequestParams)` - Get clan rankings for a specific location.
 
 ## Configuration Objects
 
@@ -103,46 +104,46 @@ All api calls are asynchronous and used in the same way as above in the getCards
  * Only the name property is required.
  */
 export interface IClanRequestParams {
-    /**
-     * Search clans by name.
-     * If name is used as part of search query, it needs to be at least three
-     * characters long. Name search parameter is interpreted as wild card
-     * search, so it may appear anywhere in the clan name.
-     */
-    name: string
-    /**
-     * Filter by clan location identifier. For list of available locations,
-     * refer to getLocations operation.
-     */
-    locationId?: number
-    /**
-     * Filter by minimum amount of clan members.
-     */
-    minMembers?: number
-    /**
-     * Filter by maximum amount of clan members.
-     */
-    maxMembers?: number
-    /**
-     * Filter by minimum amount of clan score.
-     */
-    minScore?: number
-    /**
-     * Limit the number of items returned in the response.
-     */
-    limit?: number
-    /**
-     * Return only items that occur after this marker.
-     * After marker can be found from the response, inside the 'paging' property.
-     * Note that only after or before can be specified for a request, not both.
-     */
-    after?: number
-    /**
-     * Return only items that occur before this marker.
-     * Before marker can be found from the response, inside the 'paging' property.
-     * Note that only after or before can be specified for a request, not both.
-     */
-    before?: number
+  /**
+   * Search clans by name.
+   * If name is used as part of search query, it needs to be at least three
+   * characters long. Name search parameter is interpreted as wild card
+   * search, so it may appear anywhere in the clan name.
+   */
+  name: string
+  /**
+   * Filter by clan location identifier. For list of available locations,
+   * refer to getLocations operation.
+   */
+  locationId?: number
+  /**
+   * Filter by minimum amount of clan members.
+   */
+  minMembers?: number
+  /**
+   * Filter by maximum amount of clan members.
+   */
+  maxMembers?: number
+  /**
+   * Filter by minimum amount of clan score.
+   */
+  minScore?: number
+  /**
+   * Limit the number of items returned in the response.
+   */
+  limit?: number
+  /**
+   * Return only items that occur after this marker.
+   * After marker can be found from the response, inside the 'paging' property.
+   * Note that only after or before can be specified for a request, not both.
+   */
+  after?: number
+  /**
+   * Return only items that occur before this marker.
+   * Before marker can be found from the response, inside the 'paging' property.
+   * Note that only after or before can be specified for a request, not both.
+   */
+  before?: number
 }
 ```
 
@@ -154,26 +155,26 @@ export interface IClanRequestParams {
  * Only the name property is required.
  */
 export interface ITournamentRequestParams {
-    /**
-     * Search tournaments by name.
-     */
-    name: string
-    /**
-     * Limit the number of items returned in the response.
-     */
-    limit?: number
-    /**
-     * Return only items that occur after this marker.
-     * After marker can be found from the response, inside the 'paging' property.
-     * Note that only after or before can be specified for a request, not both.
-     */
-    after?: number
-    /**
-     * Return only items that occur before this marker.
-     * Before marker can be found from the response, inside the 'paging' property.
-     * Note that only after or before can be specified for a request, not both.
-     */
-    before?: number
+  /**
+   * Search tournaments by name.
+   */
+  name: string
+  /**
+   * Limit the number of items returned in the response.
+   */
+  limit?: number
+  /**
+   * Return only items that occur after this marker.
+   * After marker can be found from the response, inside the 'paging' property.
+   * Note that only after or before can be specified for a request, not both.
+   */
+  after?: number
+  /**
+   * Return only items that occur before this marker.
+   * Before marker can be found from the response, inside the 'paging' property.
+   * Note that only after or before can be specified for a request, not both.
+   */
+  before?: number
 }
 ```
 
@@ -181,24 +182,24 @@ export interface ITournamentRequestParams {
 
 ```typescript
 export interface ILocationRequestParams {
-    /**
-     * Limit the number of items returned in the response.
-     */
-    limit?: number
-    /**
-     * Return only items that occur after this marker.
-     * After marker can be found from the response,
-     * inside the 'paging' property. Note that only
-     * after or before can be specified for a request, not both.
-     */
-    after?: number
-    /**
-     * Return only items that occur before this marker.
-     * Before marker can be found from the response,
-     * inside the 'paging' property. Note that only
-     * after or before can be specified for a request, not both.
-     */
-    before?: number
+  /**
+   * Limit the number of items returned in the response.
+   */
+  limit?: number
+  /**
+   * Return only items that occur after this marker.
+   * After marker can be found from the response,
+   * inside the 'paging' property. Note that only
+   * after or before can be specified for a request, not both.
+   */
+  after?: number
+  /**
+   * Return only items that occur before this marker.
+   * Before marker can be found from the response,
+   * inside the 'paging' property. Note that only
+   * after or before can be specified for a request, not both.
+   */
+  before?: number
 }
 ```
 
