@@ -23,7 +23,9 @@ This wrapper will only work from a nodejs server app. The official clash royale 
 
 ## Getting started
 
-In order to use the official api, you will need a token. This token can be obtained at the Official API website [https://developer.clashroyale.com](https://developer.clashroyale.com).
+In order to use the official api, you will need a token. This token can be obtained at the Official API website [https://developer.clashroyale.com](https://developer.clashroyale.com). - For each token an ip address is associated, so make sure to use the token in the same server where you got it.
+
+You can also use a **proxy server** to make the requests, such as [https://docs.royaleapi.com/proxy.html](https://docs.royaleapi.com/proxy.html) - More details below in the usage section.
 
 Once you register and get the token, you are ready to start.
 
@@ -55,7 +57,24 @@ api
   .catch(err => {
     // handle errors
   })
+
+// Using the proxy server (https://proxy.royaleapi.dev/v1)
+// Create a key on the the official API and whitelist (include) this IP: 45.79.218.79
+// Use https://proxy.royaleapi.dev/v1
+const api = new ClashRoyaleAPI(
+  'the token you got from the api',
+  'https://proxy.royaleapi.dev/v1',
+)
+
+// Use the api to get cards
+...
 ```
+
+## About the proxy server
+
+The proxy server is a service provided by the RoyaleAPI team. It allows you to make requests to the official API from the browser.
+
+If you want to host your own proxy server, there is a nuxt web app you can use available at [https://github.com/AndreVarandas/royale-proxy-api](https://github.com/AndreVarandas/royale-proxy-api).
 
 ## Methods
 

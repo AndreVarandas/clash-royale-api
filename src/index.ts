@@ -53,10 +53,11 @@ export class ClashRoyaleAPI {
    * Initializes the axios instance with the token
    * from the developer site https://developer.clashroyale.com
    *
-   * @param {string} token
+   * @param {string} token - The api token from https://developer.clashroyale.com
+   * @param {string} baseUrl - The base url for the api (optional)
    */
-  constructor(token: string) {
-    this.apiClient = getAxiosInstance(token)
+  constructor(token: string, baseUrl?: string) {
+    this.apiClient = getAxiosInstance(token, baseUrl)
   }
 
   /**

@@ -18,12 +18,17 @@ const defaultRequestConfig: AxiosRequestConfig = {
  * Authorization headers to use the official api.
  *
  * @param {string} token - The api token from https://developer.clashroyale.com
+ * @param {string} baseUrl - The base url for the api (optional)
  */
-const getAxiosInstance = (token: string) => {
+const getAxiosInstance = (token: string, baseUrl?: string) => {
   const authorization = `Bearer ${token}`
   defaultRequestConfig.headers = {
     ...defaultRequestConfig.headers,
     authorization,
+  }
+
+  if (baseUrl) {
+    defaultRequestConfig.baseURL = baseUrl
   }
 
   return axios.create(defaultRequestConfig)
