@@ -29,23 +29,14 @@ jobs:
         with:
           node-version: 'lts/*'
 
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Use the correct Yarn version
-        run: corepack prepare yarn@4.6.0 --activate
-
-      - name: Verify Yarn version
-        run: yarn -v
-
       - name: Install dependencies
-        run: yarn install --immutable
+        run: npm ci
 
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
-        run: yarn npm audit
+        run: npm audit signatures
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: List output files
         run: ls -R lib
