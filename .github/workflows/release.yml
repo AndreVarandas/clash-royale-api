@@ -29,6 +29,15 @@ jobs:
         with:
           node-version: 'lts/*'
 
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Use the correct Yarn version
+        run: corepack prepare yarn@4.6.0 --activate
+
+      - name: Verify Yarn version
+        run: yarn -v
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
