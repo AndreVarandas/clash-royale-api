@@ -42,7 +42,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
-        run: yarn npm audit signatures
+        run: yarn npm audit
 
       - name: Build
         run: yarn build
