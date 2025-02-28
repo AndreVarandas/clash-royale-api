@@ -39,10 +39,10 @@ jobs:
         run: yarn -v
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
-        run: yarn audit signatures
+        run: yarn npm audit signatures
 
       - name: Build
         run: yarn build
