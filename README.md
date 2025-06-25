@@ -113,6 +113,11 @@ All api calls are asynchronous and used in the same way as above in the getCards
 - `getPlayerRankingsForLocation(id: string, params: ILocationFullRequestParams)` - Get player rankings for a specific location.
 - `getClanWarRankingsForLocation(id: string, params: ILocationFullRequestParams)` - Get clan rankings for a specific location.
 
+**Leaderboards**
+
+- `getLeaderboards()` - List leaderboards for different trophy roads.
+- `getLeaderboardById(leaderboardId: number, params: ILeaderboardRequestParams)` - Get players on a specific leaderboard.
+
 ## Configuration Objects
 
 **IClanRequestParams**
@@ -219,6 +224,29 @@ export interface ILocationRequestParams {
    * after or before can be specified for a request, not both.
    */
   before?: number
+}
+```
+
+**ILeaderboardRequestParams**
+
+```typescript
+export interface ILeaderboardRequestParams {
+  /**
+   * Limit the number of items returned in the response.
+   */
+  limit?: number
+  /**
+   * Return only items that occur after this marker.
+   * After marker can be found from the response, inside the 'paging' property.
+   * Note that only after or before can be specified for a request, not both.
+   */
+  after?: string
+  /**
+   * Return only items that occur before this marker.
+   * Before marker can be found from the response, inside the 'paging' property.
+   * Note that only after or before can be specified for a request, not both.
+   */
+  before?: string
 }
 ```
 

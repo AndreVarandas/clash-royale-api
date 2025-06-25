@@ -11,6 +11,8 @@ import {
   getClans,
   getClanWarlog,
   getGlobalTournaments,
+  getLeaderboardById,
+  getLeaderboards,
   getLocationById,
   getLocations,
   getPlayerBattleLog,
@@ -31,6 +33,9 @@ import {
   ICurrentRiverRace,
   ICurrentWar,
   IGlobalTournaments,
+  ILeaderboard,
+  ILeaderboardPlayer,
+  ILeaderboardRequestParams,
   ILocation,
   ILocationFullRequestParams,
   ILocationRequestParams,
@@ -246,5 +251,25 @@ export class ClashRoyaleAPI {
     params: ILocationFullRequestParams,
   ): Promise<IClan[]> {
     return await getClanRankingsForLocation(id, params, this.apiClient)
+  }
+
+  /**
+   * List leaderboards for different trophy roads.
+   */
+  public async getLeaderboards(): Promise<ILeaderboard[]> {
+    return await getLeaderboards(this.apiClient)
+  }
+
+  /**
+   * Get players on a specific leaderboard.
+   *
+   * @param {number} leaderboardId
+   * @param {ILeaderboardRequestParams} params
+   */
+  public async getLeaderboardById(
+    leaderboardId: number,
+    params: ILeaderboardRequestParams = {},
+  ): Promise<ILeaderboardPlayer[]> {
+    return await getLeaderboardById(leaderboardId, params, this.apiClient)
   }
 }
