@@ -27,6 +27,6 @@ export interface ICurrentWar {
   state: string
   warEndTime: string
   collectionEndTime: string
-  clan: ICurrentWarClan
+  clans: ICurrentWarClan[]
   participants: IWarParticipants[]
 }

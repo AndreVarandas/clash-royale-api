@@ -7,6 +7,7 @@ export interface IClanMember {
   trophies: number
   arena: IArena
   role: string
+  lastSeen: string
   clanRank: number
   previousClanRank: number
   donations: number
@@ -20,8 +21,10 @@ export interface IClanMember {
 export interface IClan {
   tag: string
   name: string
+  type: string
   badgeId: number
   clanScore: number
+  clanWarTrophies: number
   requiredTrophies: number
   donationsPerWeek: number
   clanChestLevel: number
