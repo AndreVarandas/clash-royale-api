@@ -1,16 +1,13 @@
 {
-  "name": "@blakebruner/clash-royale-api",
-  "version": "1.0.3",
+  "name": "@varandas/clash-royale-api",
+  "version": "0.0.0-development",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/blakebruner/clash-royale-api.git"
-  },
-  "author": "Blake Bruner <blakebruner00@gmail.com>",
+  "repository": "https://github.com/AndreVarandas/clash-royale-api",
+  "author": "André Varandas <andre.m.varandas@gmail.com>",
   "license": "MIT",
   "description": "A Clash Royale API official wrapper for seamless integration with your applications.",
   "keywords": [
@@ -22,9 +19,9 @@
     "game development"
   ],
   "bugs": {
-    "url": "https://github.com/blakebruner/clash-royale-api/issues"
+    "url": "https://github.com/AndreVarandas/clash-royale-api/issues"
   },
-  "homepage": "https://github.com/blakebruner/clash-royale-api#readme",
+  "homepage": "https://github.com/AndreVarandas/clash-royale-api#readme",
   "scripts": {
     "commit": "npx git-cz",
     "test": "jest --config jest.config.ts",
@@ -68,12 +65,5 @@
       "eslint --fix",
       "prettier --write"
     ]
-  },
-  "exports": {
-    ".": {
-      "types": "./lib/index.d.ts",
-      "require": "./lib/index.js",
-      "default": "./lib/index.js"
-    }
   }
 }
