@@ -1,6 +1,7 @@
 import { IArena } from './arena.interface'
-import { ICard } from './card.interface'
-
+import { ICard, ICardSupport } from './card.interface'
+import { IBadge } from './badge.interface'
+import { IPathOfLegend } from './path_of_legend.interface'
 export interface IPlayer {
   tag: string
   name: string
@@ -44,6 +45,7 @@ export interface IPlayer {
       bestTrophies: number
     }
   }
+  badges: IBadge[]
   achievements: [
     {
       name: string
@@ -54,5 +56,15 @@ export interface IPlayer {
     },
   ]
   cards: ICard[]
+  supportCards: ICardSupport[]
+  currentDeck: ICard[]
+  currentDeckSupportCards: ICardSupport[]
   currentFavouriteCard: ICard
+  starPoints: number
+  expPoints: number
+  legacyTrophyRoadHighScore: number
+  currentPathOfLegendSeasonResult: IPathOfLegend
+  lastPathOfLegendSeasonResult: IPathOfLegend
+  bestPathOfLegendSeasonResult: IPathOfLegend
+  totalExpPoints: number
 }

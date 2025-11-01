@@ -16,6 +16,8 @@ export interface IBattleLog {
       startingTrophies: number
       trophyChange: number
       crowns: number
+      kingTowerHitPoints: number
+      princessTowersHitPoints: number[]
       clan: {
         tag: string
         name: string
@@ -31,6 +33,8 @@ export interface IBattleLog {
       startingTrophies: number
       trophyChange: number
       crowns: number
+      kingTowerHitPoints: number
+      princessTowersHitPoints: number[]
       clan: {
         tag: string
         name: string

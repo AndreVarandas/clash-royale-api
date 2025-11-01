@@ -1,6 +1,6 @@
-import { ICard } from './card.interface'
+import { ICard, ICardSupport } from './card.interface'
 
 export interface CardResponse {
   items: ICard[]
-  supportItems: ICard[]
+  supportItems: ICardSupport[]
 }
